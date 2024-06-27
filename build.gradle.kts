@@ -17,7 +17,7 @@ plugins {
 }
 
 // Set as appropriate for your organization
-group = "moderne"
+group = "something"
 description = "Rewrite recipes."
 
 dependencies {
