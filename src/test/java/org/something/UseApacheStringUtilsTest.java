@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package something;
+package org.something;
 
 import org.junit.jupiter.api.Test;
 import org.openrewrite.DocumentExample;
@@ -23,63 +23,34 @@ import org.openrewrite.test.RewriteTest;
 
 import static org.openrewrite.java.Assertions.java;
 
-class AssertEqualsToAssertThatTest implements RewriteTest {
-
+class UseApacheStringUtilsTest implements RewriteTest {
     @Override
     public void defaults(RecipeSpec spec) {
-        spec.recipe(new AssertEqualsToAssertThat())
-          .parser(JavaParser.fromJavaVersion()
-            .classpath("junit-jupiter-api"));
+        spec.recipeFromResources("org.something.UseApacheStringUtils")
+          .parser(JavaParser.fromJavaVersion().classpath("commons-lang3", "spring-core"));
     }
 
     @DocumentExample
     @Test
-    void twoArgument() {
+    void replacesStringEquals() {
         rewriteRun(
           //language=java
           java(
             """
-              import org.junit.jupiter.api.Assertions;
+              import org.springframework.util.StringUtils;
               
               class A {
-                  void foo() {
-                      Assertions.assertEquals(1, 2);
+                  boolean test(String s) {
+                      return StringUtils.containsWhitespace(s);
                   }
               }
               """,
             """
-              import org.assertj.core.api.Assertions;
+              import org.apache.commons.lang3.StringUtils;
               
               class A {
-                  void foo() {
-                      Assertions.assertThat(2).isEqualTo(1);
-                  }
-              }
-              """
-          )
-        );
-    }
-
-    @Test
-    void withDescription() {
-        rewriteRun(
-          //language=java
-          java(
-            """
-              import org.junit.jupiter.api.Assertions;
-              
-              class A {
-                  void foo() {
-                      Assertions.assertEquals(1, 2, "one equals two, everyone knows that");
-                  }
-              }
-              """,
-            """
-              import org.assertj.core.api.Assertions;
-              
-              class A {
-                  void foo() {
-                      Assertions.assertThat(2).as("one equals two, everyone knows that").isEqualTo(1);
+                  boolean test(String s) {
+                      return StringUtils.containsWhitespace(s);
                   }
               }
               """

@@ -70,7 +70,7 @@ In the pom.xml of a different project you wish to test your recipe out in, make 
         <version>RELEASE</version>
         <configuration>
           <activeRecipes>
-            <recipe>something.NoGuavaListsNewArrayList</recipe>
+            <recipe>org.something.NoGuavaListsNewArrayList</recipe>
           </activeRecipes>
         </configuration>
         <dependencies>
@@ -105,7 +105,7 @@ dependencies {
 }
 
 rewrite {
-    activeRecipe("something.NoGuavaListsNewArrayList")
+    activeRecipe("org.something.NoGuavaListsNewArrayList")
 }
 ```
 

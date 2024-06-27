@@ -13,9 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package something;
+package org.something;
 
-import something.table.ClassHierarchyReport;
+import org.something.table.ClassHierarchyReport;
 import org.junit.jupiter.api.Test;
 import org.openrewrite.test.RecipeSpec;
 import org.openrewrite.test.RewriteTest;

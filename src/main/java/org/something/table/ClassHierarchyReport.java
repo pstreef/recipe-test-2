@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package something.table;
+package org.something.table;
 
 import lombok.Value;
 import org.openrewrite.Column;
