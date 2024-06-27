@@ -29,7 +29,7 @@ class UseOpenRewriteNullableTest implements RewriteTest {
     public void defaults(RecipeSpec spec) {
         spec
           // Use the fully qualified class name of the recipe defined in src/main/resources/META-INF/rewrite/rewrite.yml
-          .recipeFromResources("com.yourorg.UseOpenRewriteNullable")
+          .recipeFromResources("moderne.UseOpenRewriteNullable")
           // The before and after text blocks contain references to annotations from these two classpath entries
           .parser(JavaParser.fromJavaVersion().classpath("annotations", "rewrite-core"));
     }
