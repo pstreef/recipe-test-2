@@ -16,7 +16,7 @@
 
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: moderne.UseApacheStringUtils
+name: something.UseApacheStringUtils
 displayName: Use Apache `StringUtils`
 description: Replace Spring string utilities with Apache string utilities
 recipeList:
